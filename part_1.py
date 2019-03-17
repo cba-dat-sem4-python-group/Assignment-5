@@ -6,4 +6,5 @@ app = Flask(__name__)
 
 @app.route("/", methods=['POST'])
 def hello():
-    return ("", 200) if request.get_json()['password'] == "aa" else ("", 403)
+    attempted_password = request.get_json()['password']
+    return ('OK', 200) if attempted_password == "aa" else ('Forbidden', 403)
